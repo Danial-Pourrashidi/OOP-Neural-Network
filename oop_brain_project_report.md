@@ -34,7 +34,7 @@ Complex subsystems are hidden to create easy-to-use, high-level structures.
 *   `DenseLayer` (Fully Connected Layer) manages its own weight and bias matrices. In its constructor, it automatically initializes these matrices with randomized values.
 *   In the `forward` method, it applies the linear algebra equation `Z = X * W + B` and, if an activation function is assigned to the layer, passes the result through this function and returns it. Its destructor is responsible for deleting its activation object from memory (`delete activation`).
 ### C. Manager and Orchestration: `NeuralNetwork`
-![OOP-Brain Forward Feed Neural Network Architecture (Iris Example)](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/nn.png))
+![OOP-Brain Forward Feed Neural Network Architecture (Iris Example)](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/nn.png)
 *   **Composition:** The network consists of layers (`std::vector<BaseLayer*>`). The network manages the lifecycle of the layers given to it. When the network object is destroyed, its destructor (`~NeuralNetwork`) frees all dynamic layers in its list, preventing memory leaks.
 *   **Persistence (Serialization):** With the `saveModel` and `loadModel` functions, the ability to save weights and architecture to disk (in .txt format) after model training is completed, and read them back later, is provided.
 ### D. Auxiliary Components
