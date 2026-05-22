@@ -19,7 +19,7 @@ Inheritance is actively used to prevent code duplication and establish an "IS-A"
 Different objects are enabled to exhibit different behaviors using the same interface. **Runtime Polymorphism** is heavily utilized in the project:
 *   **Virtual Functions:** The `forward`, `save`, and `load` functions within `BaseLayer` are defined as virtual. The `NeuralNetwork` class holds layers in a list of type `BaseLayer*` (base class pointer). During the forward propagation loop (`layer->forward(current)`), which layer type (e.g., DenseLayer) the called function belongs to is determined at runtime (Late Binding / Dynamic Dispatch).
 *   **Strategy Pattern:** Activation functions are abstracted with the `IActivation` interface, and `DenseLayer` accesses these functions via a pointer. This allows behavior (Sigmoid or ReLU?) to be changed at runtime without needing if-else blocks.
-![Activation Functions Comparison (Sigmoid vs ReLU)](activations.png)
+![Activation Functions Comparison (Sigmoid vs ReLU)](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/activations.png)
 ### 2.4. Abstraction
 Complex subsystems are hidden to create easy-to-use, high-level structures.
 *   **Pure Virtual Classes:** The `BaseLayer` and `IActivation` classes are abstract classes because they possess at least one pure virtual function (`= 0`), meaning they cannot be instantiated directly. They merely serve as interfaces (contracts) defining what needs to be done.
@@ -34,7 +34,7 @@ Complex subsystems are hidden to create easy-to-use, high-level structures.
 *   `DenseLayer` (Fully Connected Layer) manages its own weight and bias matrices. In its constructor, it automatically initializes these matrices with randomized values.
 *   In the `forward` method, it applies the linear algebra equation `Z = X * W + B` and, if an activation function is assigned to the layer, passes the result through this function and returns it. Its destructor is responsible for deleting its activation object from memory (`delete activation`).
 ### C. Manager and Orchestration: `NeuralNetwork`
-![OOP-Brain Forward Feed Neural Network Architecture (Iris Example)](nn.png)
+![OOP-Brain Forward Feed Neural Network Architecture (Iris Example)](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/nn.png))
 *   **Composition:** The network consists of layers (`std::vector<BaseLayer*>`). The network manages the lifecycle of the layers given to it. When the network object is destroyed, its destructor (`~NeuralNetwork`) frees all dynamic layers in its list, preventing memory leaks.
 *   **Persistence (Serialization):** With the `saveModel` and `loadModel` functions, the ability to save weights and architecture to disk (in .txt format) after model training is completed, and read them back later, is provided.
 ### D. Auxiliary Components
