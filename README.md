@@ -41,7 +41,7 @@ Complex subsystems are hidden to create easy-to-use, high-level structures.
 *   **`CSVReader`:** A utility class designed solely for reading datasets, defining its functions as `static` so there is no need for instantiation. In accordance with the Separation of Concerns principle, it separates file I/O operations from the main network logic.
 *   **Exception Handling:** Potential logical or dimension errors (e.g., trying to multiply a 3x4 matrix with a 5x2 matrix) are thrown using the custom `DimensionMismatchException` class. As seen in `main.cpp`, these errors are caught with `try-catch` blocks, preventing the program from crashing.
 ---
-## 4. Evaluation for the Project Assignment and Conclusion
+## 4. Evaluation and Conclusion
 This project is an **excellent and highly advanced example** for a C++ Object-Oriented Programming course.
 It hasn't just performed basic object instantiation;
 1.  It has professionally handled **Dynamic Memory Management (Pointers, Memory Allocation, Rule of Three)**,
