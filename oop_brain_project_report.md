@@ -26,7 +26,7 @@ Complex subsystems are hidden to create easy-to-use, high-level structures.
 *   Complex algorithmic details like matrix multiplication (`operator*`) or file reading operations are hidden within the classes, allowing the user (inside `main.cpp`) to make simple calls like `nn.predict(X)`.
 ---
 ## 3. Class Analysis and System Architecture
-![OOP-Brain UML Class Diagram]([Diagram.png](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/Diagram.png))
+![OOP-Brain UML Class Diagram](https://github.com/Danial-Pourrashidi/OOP-Neural-Network/blob/f54ff55e772c0435a2338830f6498e19eec33a78/png/Diagram.png)
 ### A. Core Math Engine: `Matrix`
 *   **Memory Management (Rule of Three):** A rule that classes using dynamic memory in C++ must follow. The `Matrix` class has specifically written its own **Copy Constructor**, **Assignment Operator**, and **Destructor** to safely manage the memory it allocates with `new`. This ensures deep copy is performed, preventing crashes and memory leaks caused by shallow copying.
 *   **Operator Overloading:** One of the powerful features of C++. By overloading the `*` operator for matrix multiplication, `+` for matrix addition and broadcasting, and `()` for accessing elements, readable code close to mathematical notation (`input * weights + biases`) is achieved.
